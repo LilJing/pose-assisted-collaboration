@@ -21,12 +21,9 @@ cd pose-assisted-collaboration
 ```
 ## Trained Model
 Our trained models are in /models
-```
-cd pose-assisted-collaboration/models
-```
+
 The trained vision-based controller model is Vision-model-best.dat and the pose-based controller model is Pose-model-best.dat;
 
-```
 There are two evaluation environments. You can choose evaluation environment UnrealGarden-DiscreteColorGoal-v1 (for _Garden_ environment) and UnrealUrbanTreeOBST-DiscreteColorGoal-v1 (for _Urban City_ environment), e.g.
 ```
 --env UnrealGarden-DiscreteColorGoal-v1 
