@@ -24,28 +24,20 @@ Our trained models are in /models
 ```
 cd pose-assisted-collaboration/models
 ```
-The trained vision-based controller model is Vision-gate-model-best.dat and the pose-based controller model is Pose-model-best.dat;
+The trained vision-based controller model is Vision-model-best.dat and the pose-based controller model is Pose-model-best.dat;
 
-## Run Our Method 
-Load the trained model 
 ```
---load-vision-model Vision-gate-model-best.dat
-```
-and 
-```
---load-pose-model Pose-model-best.dat
-```
-Choose evaluation environment UnrealGarden-DiscreteColorGoal-v1 (for _Garden_ environment) and UnrealUrbanTreeOBST-DiscreteColorGoal-v1 (for _Urban City_ environment), e.g.
+There are two evaluation environments. You can choose evaluation environment UnrealGarden-DiscreteColorGoal-v1 (for _Garden_ environment) and UnrealUrbanTreeOBST-DiscreteColorGoal-v1 (for _Urban City_ environment), e.g.
 ```
 --env UnrealGarden-DiscreteColorGoal-v1 
 ```
-
+## Run Our Method 
 Run the pose-assisted multi-camera collaboration method:
 ```
-python evaluate.py --rescale --load-vision-model  ~/Vision-gate-model-best.dat --load-pose-model ~/Pose-model-best.dat  --env UnrealGarden-DiscreteColorGoal-v1 --num-episodes 100 --test-type modelgate
+python evaluate.py --rescale --load-vision-model  ./models/Vision-model-best.dat --load-pose-model ./models/Pose-model-best.dat  --env UnrealGarden-DiscreteColorGoal-v1 --num-episodes 100 --test-type modelgate
 ```
 ## Visualization
-To see visual tracking when running our method, add
+To see real-time pose visualization when running our method, add
 ```
 --render
 ```
