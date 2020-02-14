@@ -19,14 +19,14 @@ pip install -e .
 git clone https://github.com/LilJing/pose-assisted-collaboration.git 
 cd pose-assisted-collaboration
 ```
-## Trained Model
-Our trained models are in ./models
+## Trained Models
+Our trained best models are in ./models;
 
-The trained vision-based controller model is Vision-model-best.dat and the pose-based controller model is Pose-model-best.dat;
+The trained vision-based controller model is Vision-model-best.dat and the pose-based controller model is Pose-model-best.dat.
 
 ## Environments for Evaluation
 
-There are two environments for evaluation. You can choose environment UnrealGarden-DiscreteColorGoal-v1 (for _Garden_ environment) and UnrealUrbanTreeOBST-DiscreteColorGoal-v1 (for _Urban City_ environment).
+There are two environments for evaluation. You can choose environment UnrealGarden-DiscreteColorGoal-v1 (for _Garden_ environment) or UnrealUrbanTreeOBST-DiscreteColorGoal-v1 (for _Urban City_ environment).
 
 ## Run Our Method 
 Run the pose-assisted multi-camera collaboration method:
