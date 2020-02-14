@@ -31,12 +31,8 @@ There are two evaluation environments. You can choose evaluation environment Unr
 ## Run Our Method 
 Run the pose-assisted multi-camera collaboration method:
 ```
-python evaluate.py --rescale --load-vision-model  ./models/Vision-model-best.dat --load-pose-model ./models/Pose-model-best.dat  --env UnrealGarden-DiscreteColorGoal-v1 --num-episodes 100 --test-type modelgate
+python evaluate.py --rescale --load-vision-model  ./models/Vision-model-best.dat --load-pose-model ./models/Pose-model-best.dat  --env UnrealGarden-DiscreteColorGoal-v1 --num-episodes 100 --test-type modelgate --render
 ```
-## Visualization
-To see real-time pose visualization when running our method, add
-```
---render
-```
+## More Visualization
 
 To see complete videos, please refer to [YouTube](https://www.youtube.com/watch?v=8Ha7HGkRv6k&feature=youtu.be).
