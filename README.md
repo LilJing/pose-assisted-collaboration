@@ -20,33 +20,33 @@ git clone https://github.com/LilJing/pose-assisted-collaboration.git
 cd pose-assisted-collaboration
 ```
 
-### Training
+## Training
 If you want to train the vision model, use following command:
 ```
 python main.py --rescale --shared-optimizer --env UnrealMCRoomLarge-DiscreteColorGoal-v5
 ```
-If you want to train the pose model, clone branch:
+If you want to train the pose model, clone the branch:
 ```
 git clone -b pose https://github.com/LilJing/pose-assisted-collaboration.git 
 cd pose-assisted-collaboration/pose
 ```
-the use following command:
+and then use following command:
 ```
 python main.py --env PoseEnv-v1 --shared-optimizer --render
 
 ```
 All models will be saved in logs dir.
 
-## Trained Models
+### Trained Models
 Our trained best models are in ./models;
 
 The trained vision-based controller model is Vision-model-best.dat and the pose-based controller model is Pose-model-best.dat.
 
-## Environments for Evaluation
+## Evaluation
 
 There are two environments for evaluation. You can choose environment UnrealGarden-DiscreteColorGoal-v1 (for _Garden_ environment) or UnrealUrbanTreeOBST-DiscreteColorGoal-v1 (for _Urban City_ environment).
 
-## Run Our Method for Evaluation
+### Run Our Method for Evaluation
 Run the pose-assisted multi-camera collaboration method on _Garden_:
 ```
 python evaluate.py --rescale --load-vision-model  ./models/Vision-model-best.dat --load-pose-model ./models/Pose-model-best.dat  --env UnrealGarden-DiscreteColorGoal-v1 --num-episodes 100 --test-type modelgate --render
