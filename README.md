@@ -28,7 +28,7 @@ python main.py --rescale --shared-optimizer --env UnrealMCRoomLarge-DiscreteColo
 ```
 ### Train the pose model
 ```
-cd pose-assisted-collaboration/pose
+cd ./pose
 ```
 and then use the following command:
 ```

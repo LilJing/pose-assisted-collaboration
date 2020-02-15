@@ -20,7 +20,7 @@ parser.add_argument('--tau', type=float, default=1.00, metavar='T', help='parame
 parser.add_argument('--entropy', type=float, default=0.001, metavar='T', help='parameter for entropy (default: 0.01)')
 parser.add_argument('--gate-entropy', type=float, default=0.0001, metavar='T', help='parameter for gate entropy (default: 0.01)')
 parser.add_argument('--seed', type=int, default=1, metavar='S', help='random seed (default: 1)')
-parser.add_argument('--workers', type=int, default=0, metavar='W', help='how many training processes to use (default: 32)')
+parser.add_argument('--workers', type=int, default=6, metavar='W', help='how many training processes to use (default: 32)')
 parser.add_argument('--testers', type=int, default=1, metavar='W', help='how many test processes to collect data (default: 32)')
 parser.add_argument('--num-steps', type=int, default=20, metavar='NS', help='number of forward steps in A3C (default: 300)')
 parser.add_argument('--test-eps', type=int, default=20, metavar='M', help='maximum length of an episode (default: 10000)')

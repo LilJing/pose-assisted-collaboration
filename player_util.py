@@ -178,13 +178,11 @@ class Agent(object):
         self.collect_data_step += 1
 
         if self.args.render:
-            if 'VizDoom' in self.args.env:
-                cv2_show(self.env)
+            if 'gtgate' in self.args.test_type:
+                self.env.env.env.env.to_render(self.gt_gate)
             else:
-                if 'gtgate' in self.args.test_type:
-                    self.env.env.env.env.to_render(self.gt_gate)
-                else:
-                    self.env.env.env.env.to_render(gate_id)
+                self.env.env.env.env.to_render(gate_id) # pose map render
+                self.env.render() # vision render
         self.state = torch.from_numpy(state_multi).float().to(self.device)
 
         self.set_cam_info()
