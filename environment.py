@@ -15,7 +15,7 @@ def create_env(env_id, args, rank=-1):
     if args.rescale is True:
         env = Rescale(env, args)
 
-    if 'img' in args.obs and 'Maze' not in env_id:
+    if 'img' in args.obs:
         env = UnrealRescale(env, args)
     return env
 
