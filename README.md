@@ -15,20 +15,19 @@ pip install -e .
 ```
 
 ## **Training Reproduction**
-### The vision model
-If you want to train the vision model, clone the repo:
+### Clone this repo
 ```
 git clone https://github.com/LilJing/pose-assisted-collaboration.git 
 cd pose-assisted-collaboration
 ```
-and then use the following command:
+
+### Train the vision model
+Use the following command:
 ```
 python main.py --rescale --shared-optimizer --env UnrealMCRoomLarge-DiscreteColorGoal-v5
 ```
-### The pose model
-If you want to train the pose model, clone the branch:
+### Train the pose model
 ```
-git clone -b pose https://github.com/LilJing/pose-assisted-collaboration.git 
 cd pose-assisted-collaboration/pose
 ```
 and then use the following command:
