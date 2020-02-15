@@ -19,6 +19,24 @@ pip install -e .
 git clone https://github.com/LilJing/pose-assisted-collaboration.git 
 cd pose-assisted-collaboration
 ```
+
+### Training
+If you want to train the vision model, use following command:
+```
+python main.py --rescale --shared-optimizer --env UnrealMCRoomLarge-DiscreteColorGoal-v5
+```
+If you want to train the pose model, clone branch:
+```
+git clone -b pose https://github.com/LilJing/pose-assisted-collaboration.git 
+cd pose-assisted-collaboration/pose
+```
+the use following command:
+```
+python main.py --env PoseEnv-v1 --shared-optimizer --render
+
+```
+All models will be saved in logs dir.
+
 ## Trained Models
 Our trained best models are in ./models;
 
