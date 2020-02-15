@@ -37,13 +37,14 @@ parser.add_argument('--rescale', dest='rescale', action='store_true', help='resc
 parser.add_argument('--render', dest='render', action='store_true', help='render test')
 parser.add_argument('--shared-optimizer', dest='shared_optimizer', action='store_true', help='use an optimizer without shared statistics.')
 parser.add_argument('--train-mode', type=int, default=-1, metavar='TM', help='his')
-parser.add_argument('--stack-frames', type=int, default=1, metavar='SF', help='Choose number of observations to stack')
+parser.add_argument('--stack-frames', type=int, default=1, metavar='SF', help='choose number of observations to stack')
 parser.add_argument('--input-size', type=int, default=80, metavar='IS', help='input image size')
 parser.add_argument('--lstm-out', type=int, default=256, metavar='LO', help='lstm output size')
 parser.add_argument('--sleep-time', type=int, default=10, metavar='LO', help='seconds')
 parser.add_argument('--step-size', type=int, default=10000, metavar='LO', help='step size for lr schedule')
 parser.add_argument('--max-step', type=int, default=2000000, metavar='LO', help='max learning steps')
-parser.add_argument('--global-model', default='gru', metavar='M', help='Model type to use')
+parser.add_argument('--global-model', default='gru', metavar='M', help='pose model type to use')
+parser.add_argument('--test-type', default='modelgate', metavar='M', help='use our gate model')
 parser.add_argument('--rnn-layer', type=int, default=1, metavar='S', help='random seed (default: 1)')
 
 
