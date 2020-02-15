@@ -28,11 +28,16 @@ The trained vision-based controller model is Vision-model-best.dat and the pose-
 
 There are two environments for evaluation. You can choose environment UnrealGarden-DiscreteColorGoal-v1 (for _Garden_ environment) or UnrealUrbanTreeOBST-DiscreteColorGoal-v1 (for _Urban City_ environment).
 
-## Run Our Method 
-Run the pose-assisted multi-camera collaboration method:
+## Run Our Method for Evaluation
+Run the pose-assisted multi-camera collaboration method on _Garden_:
 ```
 python evaluate.py --rescale --load-vision-model  ./models/Vision-model-best.dat --load-pose-model ./models/Pose-model-best.dat  --env UnrealGarden-DiscreteColorGoal-v1 --num-episodes 100 --test-type modelgate --render
 ```
+Run the pose-assisted multi-camera collaboration method on _Urban City_:
+```
+python evaluate.py --rescale --load-vision-model  ./models/Vision-model-best.dat --load-pose-model ./models/Pose-model-best.dat  --env UnrealUrbanTreeOBST-DiscreteColorGoal-v1 --num-episodes 100 --test-type modelgate --render
+```
+
 ## More Visualization
 
 To see complete videos, please refer to [YouTube](https://www.youtube.com/watch?v=8Ha7HGkRv6k&feature=youtu.be).
