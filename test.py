@@ -29,10 +29,7 @@ def test(rank, args, shared_model, train_modes, n_iters, device):
 
     torch.manual_seed(args.seed)
 
-    if args.env_base is None:
-        env = create_env(args.env, args)
-    else:
-        env = create_env(args.env_base, args)
+    env = create_env(args.env, args)
 
     start_time = time.time()
     num_tests = 1
