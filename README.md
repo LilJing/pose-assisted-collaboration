@@ -14,14 +14,13 @@ cd gym_unrealcv
 pip install -e .
 ```
 
-### Clone this repo
+## Training
+If you want to train the vision model, clone the repo:
 ```
 git clone https://github.com/LilJing/pose-assisted-collaboration.git 
 cd pose-assisted-collaboration
 ```
-
-## Training
-If you want to train the vision model, use following command:
+and then use following command:
 ```
 python main.py --rescale --shared-optimizer --env UnrealMCRoomLarge-DiscreteColorGoal-v5
 ```
@@ -35,7 +34,7 @@ and then use following command:
 python main.py --env PoseEnv-v1 --shared-optimizer --render
 
 ```
-All models will be saved in logs dir.
+All models will be saved in corresponding logs dir.
 
 ### Trained Models
 Our trained best models are in ./models;
