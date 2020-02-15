@@ -24,7 +24,7 @@ cd pose-assisted-collaboration
 ### Train the vision model
 Use the following command:
 ```
-python main.py --rescale --shared-optimizer --env UnrealMCRoomLarge-DiscreteColorGoal-v5
+python main.py --rescale --shared-optimizer --env UnrealMCRoomLarge-DiscreteColorGoal-v5 --render
 ```
 ### Train the pose model
 ```
