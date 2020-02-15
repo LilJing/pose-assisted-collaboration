@@ -4,7 +4,7 @@ This package contains code to the paper "Jing Li*, Jing Xu*, Fangwei Zhong*, Xia
 ## Multi-Camera Active Tracking
 ![Task](https://github.com/LilJing/pose-assisted-collaboration/blob/master/images/task.jpg)
 
-## Setup
+## **Setup**
 The code was built on Ubuntu 16.04.6 LTS with Python 3.5.6, PyTorch 1.0.1, and CUDA 8.0.61.
 ### Environment setup
 Download the Virtual Environment -- UnrealCV in [gym-unrealcv](https://github.com/LilJing/gym_unrealcv):
@@ -14,7 +14,7 @@ cd gym_unrealcv
 pip install -e .
 ```
 
-## Training Reproduction
+## **Training Reproduction**
 ### The vision model
 If you want to train the vision model, clone the repo:
 ```
@@ -44,7 +44,7 @@ Our trained best models which can be used directly are in ./models;
 The trained vision-based controller model is Vision-model-best.dat and the pose-based controller model is Pose-model-best.dat.
 
 
-## Evaluation Reproduction
+## **Evaluation Reproduction**
 
 There are two environments for evaluation,  _Garden_ and _Urban City_.
 
@@ -58,6 +58,6 @@ Run the pose-assisted multi-camera collaboration method on _Urban City_:
 python evaluate.py --rescale --load-vision-model  ./models/Vision-model-best.dat --load-pose-model ./models/Pose-model-best.dat  --env UnrealUrbanTreeOBST-DiscreteColorGoal-v1 --num-episodes 100 --test-type modelgate --render
 ```
 
-## More Visualization
+## **More Visualization**
 
 To see complete videos, please refer to [YouTube](https://www.youtube.com/watch?v=8Ha7HGkRv6k&feature=youtu.be).
