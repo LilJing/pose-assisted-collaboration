@@ -14,7 +14,8 @@ cd gym_unrealcv
 pip install -e .
 ```
 
-## Training
+## Training Reproduction
+
 If you want to train the vision model, clone the repo:
 ```
 git clone https://github.com/LilJing/pose-assisted-collaboration.git 
@@ -41,7 +42,7 @@ Our trained best models are in ./models;
 
 The trained vision-based controller model is Vision-model-best.dat and the pose-based controller model is Pose-model-best.dat.
 
-## Evaluation
+## Evaluation Reproduction
 
 There are two environments for evaluation. You can choose environment UnrealGarden-DiscreteColorGoal-v1 (for _Garden_ environment) or UnrealUrbanTreeOBST-DiscreteColorGoal-v1 (for _Urban City_ environment).
 
