@@ -18,7 +18,6 @@ parser.add_argument('--lr', type=float, default=0.0001, metavar='LR', help='lear
 parser.add_argument('--gamma', type=float, default=0.95, metavar='G', help='discount factor for rewards (default: 0.99)')
 parser.add_argument('--tau', type=float, default=1.00, metavar='T', help='parameter for GAE (default: 1.00)')
 parser.add_argument('--entropy', type=float, default=0.001, metavar='T', help='parameter for entropy (default: 0.01)')
-parser.add_argument('--gate-entropy', type=float, default=0.0001, metavar='T', help='parameter for gate entropy (default: 0.01)')
 parser.add_argument('--seed', type=int, default=1, metavar='S', help='random seed (default: 1)')
 parser.add_argument('--workers', type=int, default=6, metavar='W', help='how many training processes to use (default: 32)')
 parser.add_argument('--testers', type=int, default=1, metavar='W', help='how many test processes to collect data (default: 32)')
