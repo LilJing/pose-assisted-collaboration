@@ -12,6 +12,10 @@ from player_util import Agent
 from model import build_model
 from train import train
 from test import test
+
+# from shared_optim import SharedRMSprop, SharedAdam
+import sys
+sys.path.append('../')
 from shared_optim import SharedRMSprop, SharedAdam
 
 #undo_logger_setup()

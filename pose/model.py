@@ -6,6 +6,9 @@ import torch.nn.functional as F
 import numpy as np
 import math
 from torch.autograd import Variable
+
+import sys
+sys.path.append('../')
 from utils import norm_col_init, weights_init, normal
 
 

@@ -8,6 +8,8 @@ from tensorboardX import SummaryWriter
 from setproctitle import setproctitle as ptitle
 
 from environment import create_env
+import sys
+sys.path.append('../')
 from utils import setup_logger
 from player_util import Agent
 from model import build_model

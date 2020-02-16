@@ -3,6 +3,9 @@ import math
 import numpy as np
 import torch
 from torch.autograd import Variable
+
+import sys
+sys.path.append('../')
 from utils import ensure_shared_grads
 
 class Agent(object):
