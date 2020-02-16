@@ -12,6 +12,7 @@ from tensorboardX import SummaryWriter
 import os
 import time
 import torch.nn as nn
+import numpy as np
 
 def train(rank, args, shared_model, optimizer, train_modes, n_iters, device, env=None):
     n_steps = 0
@@ -104,7 +105,6 @@ def train(rank, args, shared_model, optimizer, train_modes, n_iters, device, env
         player.values.append(Variable(R).to(device))
         policy_loss = torch.zeros(player.num_agents, 1).to(device)
         value_loss = torch.zeros(player.num_agents, 1).to(device)
-        pred_loss = torch.zeros(1, 1).to(device)
         entropies = torch.zeros(player.num_agents, 1).to(device)
 
         w_entropies = torch.Tensor([[float(args.entropy)] for i in range(player.num_agents)]).to(device)

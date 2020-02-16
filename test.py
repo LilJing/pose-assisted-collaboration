@@ -34,7 +34,6 @@ def test(rank, args, shared_model, train_modes, n_iters, device):
     start_time = time.time()
     num_tests = 1
     n_step = 0
-
     player = Agent(None, env, args, None, None, device)
     player.model = build_model(
         player.env.observation_space, player.env.action_space, args, device).to(device)

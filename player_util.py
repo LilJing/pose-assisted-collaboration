@@ -3,8 +3,6 @@ import math
 import numpy as np
 import torch
 from torch.autograd import Variable
-from utils import normal, cv2_show
-import time
 
 class Agent(object):
     def __init__(self, model, env, args, state, cam_info, device):
@@ -58,13 +56,12 @@ class Agent(object):
         self.gate_entropies = []
 
         self.images = []
-        self.mask_gt_ids = []
         self.zoom_angle_hs = []
         self.zoom_angle_vs = []
         self.collect_data_step = 0
 
         self.last_choose_whos = []
-        self.last_gate_ids = torch.Tensor([1 for i in range(self.num_agents)]).to(self.device)  # 1 - visible
+        self.last_gate_ids = torch.Tensor([1 for i in range(self.num_agents)]).to(self.device)
         self.pre_ids = []
         self.updates = []
         self.gt_ids = []
@@ -87,11 +84,7 @@ class Agent(object):
         return out
 
     def action_train(self):
-        if 'Unreal' in self.args.env:
-            self.gt_gate = torch.Tensor(np.array(self.env.env.env.env.gate_rewards)).to(self.device)
-        else:
-            self.gt_action = self.env.env.env.env.gt_actions
-
+        self.gt_gate = torch.Tensor(np.array(self.env.env.env.env.gate_ids)).to(self.device)
         if len(self.last_choose_whos) == 0:
             self.last_choose_whos = [0 for i in range(self.num_agents)]
 
@@ -117,6 +110,7 @@ class Agent(object):
 
         self.gate_gts.append(self.gt_gate)
         self.images.append(self.info['states'])
+        self.gt_gate = self.info['gate ids']
 
         self.state = torch.from_numpy(state_multi).float().to(self.device)
 
@@ -135,12 +129,10 @@ class Agent(object):
         return self
 
     def action_test(self):
+        self.gt_gate = torch.Tensor(np.array(self.env.env.env.env.gate_ids)).to(self.device)
         if 'Unreal' in self.args.env:
-
-            self.gt_action = self.env.env.env.env.gt_actions
             self.cam_pos = self.env.env.env.env.current_cam_pos
             self.collect_state = self.env.env.env.env.current_states
-            self.gt_gate = torch.Tensor(np.array(self.env.env.env.env.gate_rewards)).to(self.device)
             self.images = self.env.env.env.env.states
             self.target_poses = self.env.env.env.env.current_target_pos
 
@@ -149,7 +141,6 @@ class Agent(object):
             if len(self.last_choose_whos) == 0:
                 self.last_choose_whos = [0 for i in range(self.num_agents)]
             self.last_choose_ids.append(self.last_choose_whos)
-            t0 = time.time()
             value_multi, action_env_multi, self.H_multi, entropy, log_prob, R_pred, gate_prob, gate_id, lstm_feature = self.model(
                 (Variable(self.state), Variable(self.cam_info), self.H_multi, self.last_gate_ids, self.gt_gate))
             self.time_step += 1
@@ -162,19 +153,18 @@ class Agent(object):
         if 'discrete' not in self.args.model:
             action_env_multi = [self.wrap_action(action_env_multi[i], self.action_high[i], self.action_low[i])
                                 for i in range(self.num_agents)]
+
         state_multi, self.reward, self.done, self.info = self.env.step(action_env_multi)
         self.success_rate = self.info['Success rate']
         self.success_ids = self.info['Success ids']
 
-        self.bboxs = self.info['bboxs']
-        self.tracking_reward = self.info['tracking reward']
-        self.zoom_reward = self.info['zoom reward']
         self.gate_probs = gate_prob
         self.gate_ids = gate_id
         self.actions = action_env_multi
         self.lstm_features = lstm_feature
 
         self.gate_gts.append(self.gt_gate)
+        self.gt_gate = self.info['gate ids']
         self.collect_data_step += 1
 
         if self.args.render:

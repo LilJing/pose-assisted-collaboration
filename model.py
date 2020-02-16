@@ -73,7 +73,7 @@ class ValueNet(nn.Module):
         return value
 
 class HEAD(torch.nn.Module):
-    def __init__(self, obs_space, action_space, lstm_out=128, head_name='cnn_lstm',  stack_frames=1):
+    def __init__(self, obs_space, lstm_out=128, head_name='cnn_lstm',  stack_frames=1):
 
         super(HEAD, self).__init__()
         self.head_name = head_name
@@ -250,7 +250,7 @@ class A3C_MULTI(torch.nn.Module):
         obs_shapes = [obs_space[i].shape for i in range(self.num_agents)]
         self.head_name = head_name
 
-        self.header = HEAD(obs_shapes[0], action_spaces[0], lstm_out, head_name, stack_frames)
+        self.header = HEAD(obs_shapes[0], lstm_out, head_name, stack_frames)
         self.policy = Policy(self.header.head_dim, action_spaces[0], lstm_out, head_name, stack_frames)
 
         self.device = device
