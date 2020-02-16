@@ -1,4 +1,4 @@
-# Pose-Assisted-Multi-Camera-Collaboration
+# Pose-Assisted Multi-Camera Collaboration for Active Object Tracking
 This package contains code to the paper "Jing Li*, Jing Xu*, Fangwei Zhong*, Xiangyu Kong, Yu Qiao, Yizhou Wang. Pose-Assisted Multi-Camera Collaboration for Active Object Tracking. AAAI 2020." [[PDF]](https://arxiv.org/abs/2001.05161).
 
 ## Multi-Camera Active Tracking
