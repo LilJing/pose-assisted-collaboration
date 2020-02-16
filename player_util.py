@@ -176,6 +176,7 @@ class Agent(object):
                 else:
                     self.env.env.env.env.to_render(gate_id)
                     self.env.render()
+
         self.state = torch.from_numpy(state_multi).float().to(self.device)
 
         self.set_cam_info()
