@@ -62,7 +62,6 @@ if __name__ == '__main__':
     player = Agent(None, env, args, None, None, device)
     player.model = build_model(
         env.observation_space, env.action_space, args, device)
-    print('model', player.model)
     player.gpu_id = gpu_id
     if gpu_id >= 0:
         with torch.cuda.device(gpu_id):
@@ -121,40 +120,27 @@ if __name__ == '__main__':
             success_rate_sum = 0
             success_rate_singles = np.zeros(player.num_agents)
 
-            horizon_errors = [[] for i in range(player.num_agents)]
-            vertical_errors = [[] for i in range(player.num_agents)]
             reward_mean = 0
             eps_step = 0
             while True:
-
                 player.action_test()
                 eps_step += 1
                 reward_sum += player.reward
                 success_rate_sum += player.success_rate
                 success_rate_singles += player.success_ids
 
-                for i in range(player.num_agents):
-                    hori_angle = player.env.env.env.env.get_direction(player.env.env.env.env.cam_pose[i],
-                                                                                     player.env.env.env.env.target_pos[0])
-                    verti_angle = player.env.env.env.env.get_verti_direction(player.env.env.env.env.cam_pose[i],
-                                                                     player.env.env.env.env.target_pos[0])
-                    horizon_errors[i].append(abs(hori_angle))
-                    vertical_errors[i].append(abs(verti_angle))
-
+                gt_locations = np.array(player.info['gt_locations'])
+                horizon_errors = gt_locations[:, 0]
+                vertical_errors = gt_locations[:, 1]
                 if player.done:
                     num_tests += 1
-                    horizon_error_mean = np.array(horizon_errors).mean(1)
-                    vertical_error_mean = np.array(vertical_errors).mean(1)
-                    horizon_error_std = np.array(horizon_errors).std(1)
-                    vertical_error_std = np.array(vertical_errors).std(1)
-                    agents_hori_mean = horizon_error_mean.mean()
-                    agents_verti_mean = vertical_error_mean.mean()
-
+                    horizon_error_mean = horizon_errors.mean()
+                    vertical_error_mean = vertical_errors.mean()
                     agent_reward_mean = np.array(reward_sum).mean()
 
                     log['{0}_log'.format(args.env)].info(
-                        "Hori_mean, {0},  Verti_mean: {1}, Hori_std: {2}, Verti_std: {3}, reward mean: {4}, Success mean{5}, Success single{6}".format(
-                            horizon_error_mean, vertical_error_mean, horizon_error_std, vertical_error_std, agent_reward_mean,
+                        "Hori_mean: {0},  Verti_mean: {1}, reward mean: {2}, Success mean: {3}, Success single: {4}".format(
+                            horizon_error_mean, vertical_error_mean, agent_reward_mean,
                             success_rate_sum / eps_step, success_rate_singles / eps_step))
 
                     all_reward += agent_reward_mean
@@ -172,29 +158,20 @@ if __name__ == '__main__':
                     all_eps_hori_me += horizon_error_mean
                     all_eps_hori_me_mean = all_eps_hori_me / (i_episode + 1)
 
-                    all_eps_hori_st += horizon_error_std
-                    all_eps_hori_st_mean = all_eps_hori_st / (i_episode + 1)
-
                     all_eps_verti_me += vertical_error_mean
                     all_eps_verti_me_mean = all_eps_verti_me / (i_episode + 1)
 
-                    all_eps_verti_st += vertical_error_std
-                    all_eps_verti_st_mean = all_eps_verti_st / (i_episode + 1)
-
-                    horizon_errors = [[] for i in range(player.num_agents)]
-                    vertical_errors = [[] for i in range(player.num_agents)]
                     reward_mean = 0
                     success_rate_sum = 0
                     eps_step = 0
                     break
 
         log['{0}_log'.format(args.env)].info(
-            "All Hori_mean, {0},All Verti_mean: {1},  All Hori_std, {2}, All Verti_std: "
-            "{3}, All reward mean: {4}, All length mean {5}, All success rate mean {6}, Success rate single {7}".
+            "All Hori_mean, {0},All Verti_mean: {1}, "
+            "All reward mean: {2}, All length mean {3}, All success rate mean {4}, Success rate single {5}".
                 format(
-                all_eps_hori_me_mean, all_eps_verti_me_mean, all_eps_hori_st_mean, all_eps_verti_st_mean,
+                all_eps_hori_me_mean, all_eps_verti_me_mean,
                 all_eps_reward_mean, all_eps_length_mean, all_success_rate_mean, all_success_rate_single_mean))
-        print('Test Done')
 
     except KeyboardInterrupt:
         print("Shutting down")
