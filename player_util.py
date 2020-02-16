@@ -171,8 +171,11 @@ class Agent(object):
             if 'gtgate' in self.args.test_type:
                 self.env.env.env.env.to_render(self.gt_gate)
             else:
-                self.env.env.env.env.to_render(gate_id) # pose map render
-                self.env.render() # vision render
+                if 'MCRoom' in self.args.env:
+                    self.env.render()
+                else:
+                    self.env.env.env.env.to_render(gate_id)
+                    self.env.render()
         self.state = torch.from_numpy(state_multi).float().to(self.device)
 
         self.set_cam_info()
