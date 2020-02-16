@@ -41,7 +41,6 @@ parser.add_argument('--distance', dest='distance', action='store_true', help='ad
 parser.add_argument('--angle', dest='angle', action='store_true', help='add angle input')
 parser.add_argument('--shared-optimizer', dest='shared_optimizer', action='store_true', help='use an optimizer without shared statistics.')
 parser.add_argument('--train-mode', type=int, default=-1, metavar='TM', help='training mode')
-parser.add_argument('--stack-frames', type=int, default=1, metavar='SF', help='Choose number of observations to stack')
 parser.add_argument('--lstm-out', type=int, default=256, metavar='LO', help='lstm output size')
 parser.add_argument('--sleep-time', type=int, default=10, metavar='LO', help='seconds')
 parser.add_argument('--step-size', type=int, default=10000, metavar='LO', help='step size for lr schedule')
