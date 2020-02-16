@@ -2,12 +2,9 @@ from __future__ import division
 
 import torch
 import torch.nn as nn
-import torch.nn.init as init
 import torch.nn.functional as F
-import perception
 import numpy as np
 import math
-from torch.nn import Parameter
 from torch.autograd import Variable
 from utils import norm_col_init, weights_init, normal
 
