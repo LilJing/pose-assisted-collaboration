@@ -24,7 +24,7 @@ cd pose-assisted-collaboration
 ### Train the vision model
 Use the following command:
 ```
-python main.py --rescale --shared-optimizer --env UnrealMCRoomLarge-DiscreteColorGoal-v5 --render
+python main.py --rescale --shared-optimizer --env UnrealMCRoomLarge-DiscreteColorGoal-v5 --workers 6
 ```
 ### Train the pose model
 ```
@@ -32,7 +32,7 @@ cd ./pose
 ```
 and then use the following command:
 ```
-python main.py --env PoseEnv-v1 --shared-optimizer --render
+python main.py --env PoseEnv-v1 --shared-optimizer --workers 10
 
 ```
 All models will be saved in corresponding logs dir.
