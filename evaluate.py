@@ -130,8 +130,8 @@ if __name__ == '__main__':
                 success_rate_singles += player.success_ids
 
                 gt_locations = np.array(player.info['gt_locations'])
-                horizon_errors = gt_locations[:, 0]
-                vertical_errors = gt_locations[:, 1]
+                horizon_errors = abs(gt_locations[:, 0])
+                vertical_errors = abs(gt_locations[:, 1])
                 if player.done:
                     num_tests += 1
                     horizon_error_mean = horizon_errors.mean()
