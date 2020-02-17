@@ -50,19 +50,14 @@ python main.py --rescale --shared-optimizer --env UnrealMCRoomLarge-DiscreteColo
 cd ./pose
 python main.py --env PoseEnv-v1 --shared-optimizer --workers 12
 ```
-
 The best parameters of the network will be saved in corresponding `logs` dir.
-
-### Trained models
-Our trained best models which can be used directly are in ./models;
-
-The trained vision-based controller model is Vision-model-best.dat and the pose-based controller model is Pose-model-best.dat.
-
 
 ## Evaluation
 
 There are two environments for evaluation, _Garden_ and _Urban Tree_.
+
 We provide the pre-trained model in `.models/`.
+The trained vision-based controller model is `Vision-model-best.dat` and the pose-based controller model is `Pose-model-best.dat`.
 
 Run our model on _Garden_:
 ```
