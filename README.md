@@ -43,7 +43,7 @@ Note that you need install `OpenCV`, `Pytorch`, and the `3D environments` additi
 ### Train the vision-based controller
 Use the following command:
 ```
-python main.py --rescale --shared-optimizer --env UnrealMCRoomLarge-DiscreteColorGoal-v5 --workers 6
+python main.py --rescale --shared-optimizer --env UnrealMCRoom-DiscreteColorGoal-v5 --workers 6
 ```
 ### Train the pose-based controller
 ```
@@ -54,7 +54,7 @@ The best parameters of the network will be saved in corresponding `logs` dir.
 
 ## Evaluation
 
-There are two environments for evaluation, _Garden_ and _Urban Tree_.
+There are two environments for evaluation, _Garden_ and _Urban City_.
 
 We provide the pre-trained model in `.models/`.
 The trained vision-based controller model is `Vision-model-best.dat` and the pose-based controller model is `Pose-model-best.dat`.
@@ -65,7 +65,7 @@ python evaluate.py --rescale --load-vision-model  ./models/Vision-model-best.dat
 ```
 Run our model on _Urban City_:
 ```
-python evaluate.py --rescale --load-vision-model  ./models/Vision-model-best.dat --load-pose-model ./models/Pose-model-best.dat  --env UnrealUrbanTreeOBST-DiscreteColorGoal-v1 --num-episodes 100 --test-type modelgate --render
+python evaluate.py --rescale --load-vision-model  ./models/Vision-model-best.dat --load-pose-model ./models/Pose-model-best.dat  --env UnrealUrbanTree-DiscreteColorGoal-v1 --num-episodes 100 --test-type modelgate --render
 ```
 
 ## Demo Videos
