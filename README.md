@@ -1,7 +1,7 @@
 # Pose-Assisted Multi-Camera Collaboration for Active Object Tracking
 This repository is the python implementation of [Pose-Assisted Multi-Camera Collaboration for Active Object Tracking (AAAI 2020)](https://arxiv.org/abs/2001.05161).
 
-It contains the code for training/testing(Pytorch). The 3D environments are hosted in [gym-unrealcv](https://github.com/zfw1226/gym_unrealcv).
+It contains the code for training/testing(Pytorch). The 3D environments are hosted in [gym-unrealcv](https://github.com/zfw1226/gym-unrealcv).
 
 ![Task](https://github.com/LilJing/pose-assisted-collaboration/blob/master/images/task.jpg)
 
