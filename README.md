@@ -16,7 +16,7 @@ The repository requires:
 - setproctitle, scikit-image, imageio, TensorboardX, Matplotlib
 
 ## Prepare 3D Environments
-Install [gym-unrealcv](https://github.com/zfw1226/gym_unrealcv):
+Install [gym-unrealcv](https://github.com/zfw1226/gym-unrealcv):
 ```bash
 git clone https://github.com/zfw1226/gym_unrealcv
 cd gym_unrealcv
