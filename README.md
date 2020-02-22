@@ -10,7 +10,7 @@ The repository requires:
 - Linux (Ubuntu 16)
 - Python >= 3.6
 - Pytorch >= 1.0
-- [gym-unrealcv](https://github.com/zfw1226/gym_unrealcv) >= 1.0
+- [gym-unrealcv](https://github.com/zfw1226/gym-unrealcv) >= 1.0
 - OpenCV >= 3.4
 - Numpy == 1.14.0
 - setproctitle, scikit-image, imageio, TensorboardX, Matplotlib
