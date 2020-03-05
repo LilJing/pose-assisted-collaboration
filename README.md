@@ -77,7 +77,7 @@ If you found this work useful, please consider citing:
 ```
 @inproceedings{li2020pose,
   title={Pose-Assisted Multi-Camera Collaboration for Active Object Tracking},
-  author={Jing Li, "Jing Xu, Fangwei Zhong, Xiangyu Kong, Yu Qiao,  Yizhou Wang},
+  author={Jing Li*, Jing Xu*, Fangwei Zhong*, Xiangyu Kong, Yu Qiao,  Yizhou Wang},
   booktitle={The Thirty-Fourth AAAI Conference on Artificial Intelligence},
   year={2020}
 }
