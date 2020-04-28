@@ -48,7 +48,7 @@ python main.py --rescale --shared-optimizer --env UnrealMCRoom-DiscreteColorGoal
 ### Train the pose-based controller
 ```
 cd ./pose
-python main.py --env PoseEnv-v1 --shared-optimizer --workers 12
+python main.py --env PoseEnv-v0 --shared-optimizer --workers 12
 ```
 The best parameters of the network will be saved in corresponding `logs` dir.
 
