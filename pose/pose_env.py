@@ -174,7 +174,7 @@ class Pose_Env:
             cam_rot[2] -= angle_v
 
             # random cameras' rotation
-            if self.reset_type == 0 or i in self.random_ids:
+            if self.reset_type == 0 and i in self.random_ids:
                 delta_h = np.random.randint(-180, 180)
                 delta_v = np.random.randint(-80, 80)
                 cam_rot[1] += delta_h
