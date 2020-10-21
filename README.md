@@ -27,7 +27,7 @@ Load environment binaries:
 python load_env.py -e Textures
 python load_env.py -e MCRoom
 python load_env.py -e UrbanTree
-python load_env.py -e Garedn
+python load_env.py -e Garden
 ```
 
 ## Installation
