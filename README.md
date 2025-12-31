@@ -3,7 +3,7 @@ This repository is the python implementation of [Pose-Assisted Multi-Camera Coll
 
 It contains the code for training/testing(Pytorch). The 3D environments are hosted in [gym-unrealcv](https://github.com/zfw1226/gym-unrealcv).
 
-![Task](https://github.com/LilJing/pose-assisted-collaboration/blob/master/images/task.jpg)
+![Task](images/task.jpg)
 
 ## Dependencies
 The repository requires:
